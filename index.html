@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schere, Stein, Papier</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+      <form>
+        <section class="outputrounds">
+          <h2>how many rounds?</h2>
+          <div class="roundscontainer">
+            <div class="rounds">
+              <input type="radio" name="numrounds" id="rounds5" value="5" />
+              <label for="radio">5</label>
+            </div>
+            <div class="rounds">
+              <input type="radio" name="numrounds" id="rounds10" value="10" />
+              <label for="radio">10</label>
+            </div>
+            <div class="rounds">
+              <input type="radio" name="numrounds" id="rounds15" value="15" />
+              <label for="radio">15</label>
+            </div>
+            <div class="rounds">
+              <input type="radio" name="numrounds" id="rounds20" value="20" />
+              <label for="radio">20</label>
+            </div>
+          </div>
+        </section>
+        <section class="outputwinsloses">
+          <h2 class="outputuser">0</h2>
+          <h2 class="outputcomputer">0</h2>
+        </section>
+        <section class="outputcommentary">
+          <h2 class="winner"></h2>
+          <p class="output">Let's play</p>
+        </section>
+        <input
+          onclick="startPlaying(scissor)"
+          type="button"
+          value="schere"
+          id="scissor"
+        />
+        <input
+          onclick="startPlaying(stone)"
+          type="button"
+          value="stein"
+          id="stone"
+        />
+        <input
+          onclick="startPlaying(paper)"
+          type="button"
+          value="papier"
+          id="paper"
+        />
+      </form>
+      <button onClick="window.location.reload();">Refresh Page</button>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+  </body>
+</html>
