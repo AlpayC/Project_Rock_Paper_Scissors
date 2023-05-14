@@ -20,17 +20,19 @@ let winLoosePic = document.querySelector(".winloosepic-off");
 const btnContainerChoices = document.querySelector(".btncontainerchoices");
 const splashScreen = document.querySelector(".splashscreen");
 // Variable wurde definiert für den gesamten Inhalt der Radiobuttons, damit diese nach dem ersten Klicken der Buttons ersetzt werden mit den nachfolgenden Daten
-let roundsContainer = document.querySelector(".roundscontainer");
+let roundsContainerValues = document.querySelector(".roundscontainervalues");
 const outputRounds = document.querySelector(".outputrounds");
 const resetBtn = document.querySelector(".resetbutton");
 const playBtn = document.querySelector(".startgame");
 const winPicture = document.querySelector(".winpicture");
 const loosePicture = document.querySelector(".loosepicture");
+const levelPicture = document.querySelector(".roundselect");
 
 const startGame = () => {
   const rounds = document.querySelector('input[name="numrounds"]:checked');
   if (rounds) {
     splashScreen.classList.add("splashscreenoff");
+    levelPicture.classList.add("roundselectoff");
   }
 };
 
@@ -58,7 +60,7 @@ const startPlaying = (button) => {
 const counterUp = () => {
   //   Nach dem Klicken der Buttons, soll geprüft werden ob noch Runden gespielt werden können oder nicht. Ist die Rundenanzahl größer oder gleich der der totalen Rundenzahl kann nicht mehr weitergespielt werden und die Buttons werden disabled
   if (roundCounter >= totalRounds - 1) {
-    roundsContainer.innerHTML = "GAME OVER";
+    roundsContainerValues.innerHTML = "GAME OVER";
     btnContainerChoices.classList.add("btncontainerchoicesoff");
     scissor.disabled = true;
     paper.disabled = true;
@@ -66,7 +68,7 @@ const counterUp = () => {
   } else {
     // Ist die Rundenzahl unter der totalen Rundenzahl, soll der Counter um 1 erhöht werden und im HTML die Anzahl der gespielten Runden eingefügt werden
     roundCounter++;
-    roundsContainer.innerHTML = roundCounter + "/" + totalRounds;
+    roundsContainerValues.innerHTML = roundCounter + "/" + totalRounds;
   }
 };
 
@@ -91,16 +93,16 @@ const challenge = () => {
     console.log("Gleichstand");
     console.log(`beide haben ${moeglicheAusgaenge[userChoice]}`);
     if (userChoice == 0 && computerChoice === 0) {
-      userHandChoice.src = "./assets/img/hands/scissor_user.svg";
-      pcHandChoice.src = "./assets/img/hands/scissor_pc.svg";
+      userHandChoice.src = "./assets/img/hands/scissor_user.png";
+      pcHandChoice.src = "./assets/img/hands/scissor_pc.png";
     }
     if (userChoice == 1 && computerChoice === 1) {
-      userHandChoice.src = "./assets/img/hands/rock_user.svg";
-      pcHandChoice.src = "./assets/img/hands/rock_pc.svg";
+      userHandChoice.src = "./assets/img/hands/rock_user.png";
+      pcHandChoice.src = "./assets/img/hands/rock_pc.png";
     }
     if (userChoice == 2 && computerChoice === 2) {
-      userHandChoice.src = "./assets/img/hands/paper_user.svg";
-      pcHandChoice.src = "./assets/img/hands/paper_pc.svg";
+      userHandChoice.src = "./assets/img/hands/paper_user.png";
+      pcHandChoice.src = "./assets/img/hands/paper_pc.png";
       console.log(pcHandChoice.src);
     }
     console.log(pcHandChoice.src);
@@ -120,31 +122,31 @@ const challenge = () => {
     // User hat die Oberhand, also gewinnt User
     console.log("User gewinnt");
     console.log(
-      `User hat ${moeglicheAusgaenge[userChoice]} PC hat ${moeglicheAusgaenge[computerChoice]}`
+      `Du hast ${moeglicheAusgaenge[userChoice]} PC hat ${moeglicheAusgaenge[computerChoice]}`
     );
     if (userChoice == 0) {
-      userHandChoice.src = "./assets/img/hands/scissor_user.svg";
+      userHandChoice.src = "./assets/img/hands/scissor_user.png";
     }
     if (userChoice == 1) {
-      userHandChoice.src = "./assets/img/hands/rock_user.svg";
+      userHandChoice.src = "./assets/img/hands/rock_user.png";
     }
     if (userChoice == 2) {
-      userHandChoice.src = "./assets/img/hands/paper_user.svg";
+      userHandChoice.src = "./assets/img/hands/paper_user.png";
     }
     if (computerChoice == 0) {
-      pcHandChoice.src = "./assets/img/hands/scissor_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/scissor_pc.png";
     }
     if (computerChoice == 1) {
-      pcHandChoice.src = "./assets/img/hands/rock_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/rock_pc.png";
     }
     if (computerChoice == 2) {
-      pcHandChoice.src = "./assets/img/hands/paper_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/paper_pc.png";
     }
     winLoosePic.classList.add("winloosepic-on");
 
-    outputWinner.innerHTML = "User gewinnt";
+    outputWinner.innerHTML = "DU gewinnst";
     userAttack();
-    outputCommentary.innerHTML = `User hat ${moeglicheAusgaenge[userChoice]} PC hat ${moeglicheAusgaenge[computerChoice]}`;
+    outputCommentary.innerHTML = `Du hast ${moeglicheAusgaenge[userChoice]}. PC hat ${moeglicheAusgaenge[computerChoice]}`;
     userWins.innerHTML++;
   } else if (
     // Hier werden die Zahlen beider Parteien logisch verglichen. Das heißt, es spielt keine Rolle, ob User oder PC eine höhere Zahl hat. Wichtig ist zu verstehen, dass die Auswahlmöglichkeiten Stein, Schere Papier mit den Zahlen 0,1,2 verknüpft sind und den Spielausgang entscheiden. Vergleiche die Conditions mit den möglichen Lösungen in Zeile 60 bis 68;
@@ -158,29 +160,29 @@ const challenge = () => {
       `User hat ${moeglicheAusgaenge[userChoice]} PC hat ${moeglicheAusgaenge[computerChoice]}`
     );
     if (userChoice == 0) {
-      userHandChoice.src = "./assets/img/hands/scissor_user.svg";
+      userHandChoice.src = "./assets/img/hands/scissor_user.png";
     }
     if (userChoice == 1) {
-      userHandChoice.src = "./assets/img/hands/rock_user.svg";
+      userHandChoice.src = "./assets/img/hands/rock_user.png";
     }
     if (userChoice == 2) {
-      userHandChoice.src = "./assets/img/hands/paper_user.svg";
+      userHandChoice.src = "./assets/img/hands/paper_user.png";
     }
     if (computerChoice == 0) {
-      pcHandChoice.src = "./assets/img/hands/scissor_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/scissor_pc.png";
     }
     if (computerChoice == 1) {
-      pcHandChoice.src = "./assets/img/hands/rock_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/rock_pc.png";
     }
     if (computerChoice == 2) {
-      pcHandChoice.src = "./assets/img/hands/paper_pc.svg";
+      pcHandChoice.src = "./assets/img/hands/paper_pc.png";
     }
     winLoosePic.classList.add("winloosepic-on");
 
     outputWinner.innerHTML = "PC gewinnt";
 
     pcAttack();
-    outputCommentary.innerHTML = `User hat ${moeglicheAusgaenge[userChoice]} PC hat ${moeglicheAusgaenge[computerChoice]}`;
+    outputCommentary.innerHTML = `DU hast ${moeglicheAusgaenge[userChoice]}. PC hat ${moeglicheAusgaenge[computerChoice]}`;
     computerWins.innerHTML++;
   } else {
   }
@@ -279,14 +281,14 @@ const deleteOutputAnimations = () => {
   pcHandChoice.classList.remove("handshaking");
   userHandChoice.classList.add("userhandchoice");
   pcHandChoice.classList.add("pchandchoice");
-  userHandChoice.src = "./assets/img/hands/rock_user.svg";
+  userHandChoice.src = "./assets/img/hands/rock_user.png";
   gameCountdownSchere.classList.remove("countdownopacity");
   gameCountdownStein.classList.remove("countdownopacity");
   gameCountdownPapier.classList.remove("countdownopacity");
   winLoosePic.classList.remove("winloosepic-on");
-  pcHandChoice.src = "./assets/img/hands/rock_pc.svg";
+  pcHandChoice.src = "./assets/img/hands/rock_pc.png";
   btnContainerChoices.classList.remove("btncontainerchoicesoff");
-  if (roundsContainer.textContent.includes("GAME")) {
+  if (roundsContainerValues.textContent.includes("GAME")) {
     playBtn.classList.add("startgameoff");
     splashScreen.classList.remove("splashscreenoff");
     outputRounds.classList.add("outputroundsoff");
@@ -299,7 +301,7 @@ const deleteOutputAnimations = () => {
 
     if (userWins > computerWins) {
       winPicture.classList.add("winpictureon");
-    } else if (userWins < computerWins) {
+    } else if (userWins <= computerWins) {
       loosePicture.classList.add("loosepictureon");
     } else {
     }
@@ -307,25 +309,25 @@ const deleteOutputAnimations = () => {
 };
 
 scissor.addEventListener("mouseover", (event) => {
-  userHandChoice.src = "./assets/img/hands/scissor_user.svg";
+  userHandChoice.src = "./assets/img/hands/scissor_user.png";
 });
 
 scissor.addEventListener("mouseout", (event) => {
-  userHandChoice.src = "./assets/img/hands/rock_user.svg";
+  userHandChoice.src = "./assets/img/hands/rock_user.png";
 });
 stone.addEventListener("mouseover", (event) => {
-  userHandChoice.src = "./assets/img/hands/rock_user.svg";
+  userHandChoice.src = "./assets/img/hands/rock_user.png";
 });
 
 stone.addEventListener("mouseout", (event) => {
-  userHandChoice.src = "./assets/img/hands/rock_user.svg";
+  userHandChoice.src = "./assets/img/hands/rock_user.png";
 });
 paper.addEventListener("mouseover", (event) => {
   userHandChoice.src = "./assets/img/hands/paper_user.png";
 });
 
 paper.addEventListener("mouseout", (event) => {
-  userHandChoice.src = "./assets/img/hands/rock_user.svg";
+  userHandChoice.src = "./assets/img/hands/rock_user.png";
 });
 
 window.addEventListener("resize", handleResize);
@@ -333,14 +335,16 @@ window.addEventListener("resize", handleResize);
 function handleResize() {
   let windowInfo = document.querySelector(".windowinfo");
   windowInfo.innerHTML =
+    "Fenstergröße: " +
     document.body.offsetWidth +
-    "  Höhe: " +
+    " x " +
     document.body.offsetHeight +
     " Pixel";
 }
 let windowInfo = document.querySelector(".windowinfo");
 windowInfo.innerHTML =
+  "Fenstergröße: " +
   document.body.offsetWidth +
-  "  Höhe: " +
+  " x " +
   document.body.offsetHeight +
   " Pixel";

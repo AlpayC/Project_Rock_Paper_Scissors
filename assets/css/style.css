@@ -18,6 +18,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 a {
@@ -67,7 +68,25 @@ header {
   z-index: 50;
 }
 
+.roundselect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+.roundselectoff {
+  visibility: hidden;
+  opacity: 0;
+}
 .windowinfo {
+  position: absolute;
+  font-size: 3rem;
+  color: white;
+  bottom: 0;
+  z-index: 4;
+}
+.windoresizebtn {
   position: absolute;
   font-size: 3rem;
   color: white;
@@ -100,20 +119,52 @@ header {
   text-shadow: 2px 2px 2px black;
   letter-spacing: 4px;
 }
+.outputrounds h2 {
+  font-size: 4rem;
+  margin-bottom: 22px;
+  font-weight: 100;
+}
 .roundscontainer {
+  margin-left: 3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 51px;
-  grid-row-gap: 50px;
+  grid-row-gap: 21px;
   font-size: 5rem;
 }
-
+.outputuser,
+.roundscontainervalues,
+.outputcomputer {
+  font-family: menufont;
+}
+.rounds {
+  overflow: unset;
+}
+.rounds:first-of-type,
+.rounds:nth-child(3) {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
 input[type="radio"] {
   transform: scale(2.2);
-  color: green;
+  appearance: none; /* entferne den standard stil */
+  background-image: url("../img/gui/level_select/dot_d.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
   vertical-align: middle;
+  transition: all 100ms ease-in;
+  overflow: unset;
 }
+input[type="radio"]:checked {
+  background-image: url("../img/gui/level_select/dot_a.png");
+}
+input[type="radio"]:hover {
+  transform: scale(2.7);
+}
+
 .outputroundsoff {
   transition: all 250ms;
   visibility: hidden;
@@ -139,7 +190,7 @@ input[type="radio"] {
   border: 0;
   width: 30%;
   position: absolute;
-  left: 60%;
+  left: 57%;
   top: 70%;
 }
 
@@ -163,15 +214,13 @@ nav {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-  margin: 1rem;
+  margin: 2rem;
   text-align: center;
-  padding: 10rem;
+  padding: 5rem;
 }
-.gamenav h2,
-.usernav h2,
-.pcnav h2 {
+h2 {
   font-size: 6rem;
+  font-weight: 100;
 }
 
 .usernav,
@@ -273,12 +322,12 @@ nav {
   opacity: 0;
 }
 .pcchar {
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
 }
 .userchar {
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
 }
 .menu {
   position: relative;
@@ -294,6 +343,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  overflow: unset;
 }
 .pchandchoice,
 .userhandchoice {
@@ -323,7 +373,7 @@ nav {
 .winloosepic-off {
   position: absolute;
   left: 50%;
-  top: 10%;
+  top: 20%;
   transform: translate(-50%, -50%);
   transition: all ease-in-out 250ms;
   opacity: 0;
@@ -335,7 +385,8 @@ nav {
   background-repeat: no-repeat;
   color: white;
   font-family: menufont;
-  font-size: 10rem;
+  font-size: 5rem;
+  font-weight: 100;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -350,8 +401,8 @@ nav {
 }
 .fromrighttoleftPC {
   position: absolute;
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
   animation: linear alternate;
   animation-name: runpc;
   animation-duration: 1s;
@@ -368,8 +419,8 @@ nav {
 }
 .fromlefttorightPC {
   position: absolute;
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
   animation: linear alternate;
   animation-name: runbackpc;
   animation-duration: 1s;
@@ -386,8 +437,8 @@ nav {
 
 .fromlefttorightUSER {
   position: absolute;
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
   animation: linear alternate;
   animation-name: runuser;
   animation-duration: 1s;
@@ -404,8 +455,8 @@ nav {
 
 .fromrighttoleftUSER {
   position: absolute;
-  height: 70vh;
-  width: 30vw;
+  height: 50vh;
+  width: 25vw;
   animation: linear alternate;
   animation-name: runbackuser;
   animation-duration: 1s;
