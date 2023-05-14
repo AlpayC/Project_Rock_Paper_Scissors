@@ -9,7 +9,49 @@
   </head>
   <body>
     <header>
-      <nav></nav>
+      <div class="windowinfo"></div>
+      <nav>
+        <div class="usernav">
+          <h2>USER</h2>
+          <h2 class="outputuser">0</h2>
+        </div>
+        <div class="gamenav">
+          <h2>ROUND</h2>
+          <h2 class="roundscontainer"></h2>
+        </div>
+        <div class="pcnav">
+          <h2>COMP</h2>
+          <h2 class="outputcomputer">0</h2>
+        </div>
+      </nav>
+      <section class="menu">
+        <div class="splashscreen"></div>
+        <div class="winloosepic-off">
+          <p class="winner"></p>
+          <p class="output"></p>
+        </div>
+        <div class="gamecountdown">
+          <p class="scissortxt">SCHERE</p>
+          <p class="stonetxt">STEIN</p>
+          <p class="papertxt">PAPIER</p>
+        </div>
+        <div class="handcontainer">
+          <img
+            src="./assets/img/Hands/rock_user.svg"
+            alt=""
+            class="userhandchoice"
+          />
+          <img
+            src="./assets/img/Hands/rock_pc.svg"
+            alt=""
+            class="pchandchoice"
+          />
+        </div>
+        <div class="charactercontainer">
+          <img class="userchar" src="./assets/img/User_Idle_250ms.gif" alt="" />
+          <img class="pcchar" src="./assets/img/PC_Idle_250ms.gif" alt="" />
+        </div>
+      </section>
       <form>
         <section class="outputrounds">
           <h2>how many rounds?</h2>
@@ -32,34 +74,35 @@
             </div>
           </div>
         </section>
-        <section class="outputwinsloses">
-          <h2 class="outputuser">0</h2>
-          <h2 class="outputcomputer">0</h2>
-        </section>
+        <section class="outputwinsloses"></section>
         <section class="outputcommentary">
-          <h2 class="winner"></h2>
-          <p class="output">Let's play</p>
+          <!-- <h2 class="winner"></h2>
+          <p class="output">Let's play</p> -->
         </section>
-        <input
-          onclick="startPlaying(scissor)"
-          type="button"
-          value="schere"
-          id="scissor"
-        />
-        <input
-          onclick="startPlaying(stone)"
-          type="button"
-          value="stein"
-          id="stone"
-        />
-        <input
-          onclick="startPlaying(paper)"
-          type="button"
-          value="papier"
-          id="paper"
-        />
+        <div class="btncontainerchoices">
+          <input
+            onclick="startPlaying(scissor)"
+            type="button"
+            value="schere"
+            id="scissor"
+          />
+          <input
+            onclick="startPlaying(stone)"
+            type="button"
+            value="stein"
+            id="stone"
+          />
+          <input
+            onclick="startPlaying(paper)"
+            type="button"
+            value="papier"
+            id="paper"
+          />
+        </div>
+        <button id="reset" onClick="window.location.reload();">
+          Refresh Page
+        </button>
       </form>
-      <button onClick="window.location.reload();">Refresh Page</button>
     </header>
     <main></main>
     <footer></footer>
