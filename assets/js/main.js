@@ -18,6 +18,21 @@ let gameCountdownStein = document.querySelector(".stonetxt");
 let gameCountdownPapier = document.querySelector(".papertxt");
 let winLoosePic = document.querySelector(".winloosepic-off");
 const btnContainerChoices = document.querySelector(".btncontainerchoices");
+const splashScreen = document.querySelector(".splashscreen");
+// Variable wurde definiert für den gesamten Inhalt der Radiobuttons, damit diese nach dem ersten Klicken der Buttons ersetzt werden mit den nachfolgenden Daten
+let roundsContainer = document.querySelector(".roundscontainer");
+const outputRounds = document.querySelector(".outputrounds");
+const resetBtn = document.querySelector(".resetbutton");
+const playBtn = document.querySelector(".startgame");
+const winPicture = document.querySelector(".winpicture");
+const loosePicture = document.querySelector(".loosepicture");
+
+const startGame = () => {
+  const rounds = document.querySelector('input[name="numrounds"]:checked');
+  if (rounds) {
+    splashScreen.classList.add("splashscreenoff");
+  }
+};
 
 const startPlaying = (button) => {
   const rounds = document.querySelector('input[name="numrounds"]:checked');
@@ -41,8 +56,6 @@ const startPlaying = (button) => {
 };
 
 const counterUp = () => {
-  // Variable wurde definiert für den gesamten Inhalt der Radiobuttons, damit diese nach dem ersten Klicken der Buttons ersetzt werden mit den nachfolgenden Daten
-  let roundsContainer = document.querySelector(".roundscontainer");
   //   Nach dem Klicken der Buttons, soll geprüft werden ob noch Runden gespielt werden können oder nicht. Ist die Rundenanzahl größer oder gleich der der totalen Rundenzahl kann nicht mehr weitergespielt werden und die Buttons werden disabled
   if (roundCounter >= totalRounds - 1) {
     roundsContainer.innerHTML = "GAME OVER";
@@ -171,6 +184,7 @@ const challenge = () => {
     computerWins.innerHTML++;
   } else {
   }
+
   console.log({ userChoice });
   console.log({ computerChoice });
 };
@@ -272,6 +286,24 @@ const deleteOutputAnimations = () => {
   winLoosePic.classList.remove("winloosepic-on");
   pcHandChoice.src = "./assets/img/hands/rock_pc.svg";
   btnContainerChoices.classList.remove("btncontainerchoicesoff");
+  if (roundsContainer.textContent.includes("GAME")) {
+    playBtn.classList.add("startgameoff");
+    splashScreen.classList.remove("splashscreenoff");
+    outputRounds.classList.add("outputroundsoff");
+    resetBtn.classList.add("resetmiddle");
+
+    let userWins = Number(document.querySelector(".outputuser").textContent);
+    let computerWins = Number(
+      document.querySelector(".outputcomputer").textContent
+    );
+
+    if (userWins > computerWins) {
+      winPicture.classList.add("winpictureon");
+    } else if (userWins < computerWins) {
+      loosePicture.classList.add("loosepictureon");
+    } else {
+    }
+  }
 };
 
 scissor.addEventListener("mouseover", (event) => {

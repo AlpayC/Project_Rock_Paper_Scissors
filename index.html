@@ -25,7 +25,46 @@
         </div>
       </nav>
       <section class="menu">
-        <div class="splashscreen"></div>
+        <div class="splashscreen">
+          <img src="./assets/img/gui/you_win/bg.png" alt="" />
+          <img
+            src="./assets/img/gui/you_win/header.png"
+            alt=""
+            class="winpicture"
+          />
+          <img
+            src="./assets/img/gui/you_lose/header.png"
+            alt=""
+            class="loosepicture"
+          />
+          <section class="outputrounds">
+            <h2>how many rounds?</h2>
+            <div class="roundscontainer">
+              <div class="rounds">
+                <input type="radio" name="numrounds" id="rounds5" value="5" />
+                <label for="radio">5</label>
+              </div>
+              <div class="rounds">
+                <input type="radio" name="numrounds" id="rounds10" value="10" />
+                <label for="radio">10</label>
+              </div>
+              <div class="rounds">
+                <input type="radio" name="numrounds" id="rounds15" value="15" />
+                <label for="radio">15</label>
+              </div>
+              <div class="rounds">
+                <input type="radio" name="numrounds" id="rounds20" value="20" />
+                <label for="radio">20</label>
+              </div>
+            </div>
+          </section>
+          <button class="startgame" onclick="startGame()">
+            <img src="./assets/img/gui/menu/play.png" alt="" />
+          </button>
+          <button class="resetbutton" onClick="window.location.reload();">
+            <img src="./assets/img/gui/btn/restart.png" alt="" />
+          </button>
+        </div>
         <div class="winloosepic-off">
           <p class="winner"></p>
           <p class="output"></p>
@@ -52,57 +91,26 @@
           <img class="pcchar" src="./assets/img/PC_Idle_250ms.gif" alt="" />
         </div>
       </section>
-      <form>
-        <section class="outputrounds">
-          <h2>how many rounds?</h2>
-          <div class="roundscontainer">
-            <div class="rounds">
-              <input type="radio" name="numrounds" id="rounds5" value="5" />
-              <label for="radio">5</label>
-            </div>
-            <div class="rounds">
-              <input type="radio" name="numrounds" id="rounds10" value="10" />
-              <label for="radio">10</label>
-            </div>
-            <div class="rounds">
-              <input type="radio" name="numrounds" id="rounds15" value="15" />
-              <label for="radio">15</label>
-            </div>
-            <div class="rounds">
-              <input type="radio" name="numrounds" id="rounds20" value="20" />
-              <label for="radio">20</label>
-            </div>
-          </div>
-        </section>
-        <section class="outputwinsloses"></section>
-        <section class="outputcommentary">
-          <!-- <h2 class="winner"></h2>
-          <p class="output">Let's play</p> -->
-        </section>
-        <div class="btncontainerchoices">
-          <input
-            onclick="startPlaying(scissor)"
-            type="button"
-            value="schere"
-            id="scissor"
-          />
-          <input
-            onclick="startPlaying(stone)"
-            type="button"
-            value="stein"
-            id="stone"
-          />
-          <input
-            onclick="startPlaying(paper)"
-            type="button"
-            value="papier"
-            id="paper"
-          />
-        </div>
-        <button id="reset" onClick="window.location.reload();">
-          Refresh Page
-        </button>
-      </form>
+      <div class="btncontainerchoices">
+        <input
+          onclick="startPlaying(scissor)"
+          type="button"
+          value="schere"
+          id="scissor"
+        />
+        <input
+          onclick="startPlaying(stone)"
+          type="button"
+          value="stein"
+          id="stone"
+        />
+        <input
+          onclick="startPlaying(paper)"
+          type="button"
+          value="papier"
+          id="paper"
+        />
+      </div>
     </header>
     <main></main>
     <footer></footer>

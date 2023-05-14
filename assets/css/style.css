@@ -43,12 +43,111 @@ header {
   position: relative;
 }
 
+.winpicture,
+.loosepicture {
+  position: absolute;
+  top: -80%;
+  opacity: 0;
+  visibility: hidden;
+}
+.winpictureon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 50;
+}
+.loosepictureon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 50;
+}
+
 .windowinfo {
   position: absolute;
   font-size: 3rem;
   color: white;
   bottom: 0;
   z-index: 4;
+}
+
+.splashscreen {
+  position: absolute;
+  top: 5%;
+  left: 37%;
+  width: 25%;
+  z-index: 3;
+  padding: 1rem;
+  color: white;
+  font-size: 3rem;
+  visibility: visible;
+  opacity: 1;
+}
+.splashscreenoff {
+  transition: all 250ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.outputrounds {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  font-family: menufont;
+  text-shadow: 2px 2px 2px black;
+  letter-spacing: 4px;
+}
+.roundscontainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 51px;
+  grid-row-gap: 50px;
+  font-size: 5rem;
+}
+
+input[type="radio"] {
+  transform: scale(2.2);
+  color: green;
+  vertical-align: middle;
+}
+.outputroundsoff {
+  transition: all 250ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.startgame {
+  background-color: transparent;
+  border: 0;
+  width: 30%;
+  position: absolute;
+  left: 10%;
+  top: 70%;
+  transition: all 200ms;
+}
+.startgameoff {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resetbutton {
+  background-color: transparent;
+  border: 0;
+  width: 30%;
+  position: absolute;
+  left: 60%;
+  top: 70%;
+}
+
+.resetmiddle {
+  width: 60%;
+  position: absolute;
+  left: 20%;
+  top: 50%;
 }
 nav {
   height: 20vh;
@@ -139,21 +238,26 @@ nav {
 }
 
 #stone {
-  top: -200%;
-  left: 33%;
+  top: 30%;
+  left: 46%;
+  translate: -50%, -50%;
 }
 #scissor {
-  top: -125%;
-  left: 33%;
+  top: 45%;
+  left: 46%;
+  translate: -50%, -50%;
 }
 #paper {
-  top: -50%;
-  left: 33%;
+  top: 60%;
+  left: 46%;
+  translate: -50%, -50%;
 }
 
 #stone:hover,
 #scissor:hover,
-#paper:hover {
+#paper:hover,
+.resetbutton:hover,
+.startgame:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -243,17 +347,6 @@ nav {
 }
 .pcchar {
   transform: scaleX(-1);
-}
-form {
-  font-family: menufont;
-  font-size: 3rem;
-  position: absolute;
-  background-color: white;
-  padding: 2rem;
-  border-radius: 20px;
-  left: 50%;
-  top: 80%;
-  transform: translate(-50%, -50%);
 }
 .fromrighttoleftPC {
   position: absolute;
