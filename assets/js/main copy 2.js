@@ -323,14 +323,8 @@ const deleteOutputAnimations = () => {
 
     if (userWins > computerWins) {
       winPicture.classList.add("winpictureon");
-      setTimeout(() => {
-        pcAnimation.src = "./assets/img/PC_Die_100ms_once.gif";
-      }, 100);
     } else if (userWins <= computerWins) {
       loosePicture.classList.add("loosepictureon");
-      setTimeout(() => {
-        userAnimation.src = "./assets/img/User_Die_100ms_once.gif";
-      }, 100);
     } else {
     }
   }
