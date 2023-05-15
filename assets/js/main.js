@@ -224,9 +224,11 @@ const pcAttack = () => {
   // Funktionspause 1 Sekunden für die Attacke. Die Src wird von Run auf Attack geändert
   setTimeout(() => {
     pcAnimation.src = "./assets/img/PC_Attack_100ms.gif";
+    userAnimation.src = "./assets/img/User_Hurt_100ms.gif";
     userAnimation.classList.add("blinking-char");
     // Funktionspause 2 Sekunden für die Zurücklaufen. Die Klasse pcchar wird hinzugefügt und die Klasse mit zwecks Zurücklaufen ebenfalls mit Animation. Src wird geändert von Attack auf Run.
     setTimeout(() => {
+      userAnimation.src = "./assets/img/User_Idle_250ms.gif";
       userAnimation.classList.remove("blinking-char");
       pcAnimation.classList.add("fromlefttorightPC");
       pcAnimation.classList.add("pcchar");
@@ -249,14 +251,15 @@ const userAttack = () => {
   userAnimation.src = "./assets/img/User_Run_100ms.gif";
   userAnimation.classList.add("userchar");
   userAnimation.classList.add("fromlefttorightUSER");
-
   // Funktionspause 1 Sekunden für die Attacke. Die Src wird von Run auf Attack geändert
   setTimeout(() => {
     userAnimation.classList.add("userattackpos");
     userAnimation.src = "./assets/img/User_Attack_100ms.gif";
+    pcAnimation.src = "./assets/img/PC_Hurt_100ms.gif";
     pcAnimation.classList.add("blinking-char");
     // Funktionspause 2 Sekunden für die Zurücklaufen. Die Klasse pcchar wird hinzugefügt und die Klasse mit zwecks Zurücklaufen ebenfalls mit Animation. Src wird geändert von Attack auf Run.
     setTimeout(() => {
+      pcAnimation.src = "./assets/img/PC_Idle_250ms.gif";
       pcAnimation.classList.remove("blinking-char");
       userAnimation.classList.remove("userattackpos");
       userAnimation.classList.add("fromrighttoleftUSER");
